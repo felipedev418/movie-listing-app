@@ -1,0 +1,95 @@
+@use 'sass:color';
+@use 'variables' as *;
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-color;
+  background-color: $background-color;
+}
+
+// Container
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-unit * 2;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-unit * 2;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+// Utility classes
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: $spacing-unit; }
+.mt-2 { margin-top: $spacing-unit * 2; }
+.mt-3 { margin-top: $spacing-unit * 3; }
+.mb-1 { margin-bottom: $spacing-unit; }
+.mb-2 { margin-bottom: $spacing-unit * 2; }
+.mb-3 { margin-bottom: $spacing-unit * 3; }
+
+// Responsive utilities
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+// Button styles
+
+.btn {
+  &-primary {
+    &:hover {
+      background-color: color.scale($primary-color, $lightness: -10%);
+    }
+  }
+  
+  &-secondary {
+    &:hover {
+      background-color: color.scale($secondary-color, $lightness: -10%);
+    }
+  }
+}
+
+// Card styles
+.card {
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: $transition-base;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}

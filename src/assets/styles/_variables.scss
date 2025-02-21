@@ -1,0 +1,30 @@
+// Colors
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$background-color: #f8f9fa;
+$text-color: #212529;
+$border-color: #dee2e6;
+
+// Typography
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+// Spacing
+$spacing-unit: 8px;
+$container-max-width: 1200px;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Transitions
+$transition-base: all 0.2s ease-in-out;
+
+// Border radius
+$border-radius: 8px;
+$border-radius-lg: 12px;
+$border-radius-sm: 4px;
