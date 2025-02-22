@@ -1,7 +1,32 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "target": "esnext",                                  // Specify ECMAScript target version
+    "module": "esnext",                                  // Specify module code generation
+    "moduleResolution": "node",                          // TypeScript's module resolution strategy
+    "jsx": "preserve",                                   // Support JSX
+    "strict": true,                                      // Enable all strict type-checking options
+    "esModuleInterop": true,                             // Enables emit interoperability between CommonJS and ES Modules
+    "skipLibCheck": true,                               // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true,           // Disallow inconsistently-cased references to the same file
+    "baseUrl": ".",                                      // Base directory to resolve non-relative module names
+    "paths": {
+      "@/*": ["src/*"]                                   // Path alias for the src directory
+    },
+    "lib": ["esnext", "dom"],                           // Include the standard library files
+    "noImplicitAny": false,                              // Disable error on expressions and declarations with an implied 'any' type
+    "allowJs": true,                                     // Allow JavaScript files to be compiled
+    "noEmit": true                                       // Do not emit output
+  },
+  "include": [
+    "src/**/*.ts",                                       // Include all .ts files in src
+    "src/**/*.d.ts",                                     // Include all type declaration .d.ts files
+    "src/**/*.tsx",                                      // Include all .tsx files in src
+    "src/**/*.vue"                                       // Include all .vue files
+  ],
+  "exclude": [
+    "node_modules",                                     // Exclude node_modules
+    "dist",                                             // Exclude build directory
+    "**/*.spec.ts",                                     // Optionally exclude test files
+    "**/*.test.ts"                                      // Optionally exclude test files
   ]
 }

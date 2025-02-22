@@ -1,15 +1,12 @@
 <template>
   <div class="pagination">
-    <button 
-      @click="handlePrevious" 
-      :disabled="currentPage === 1"
-    >
+    <button @click="handlePrevious" :disabled="currentPage === 1">
       Previous
     </button>
-    
+
     <div class="pages">
-      <button 
-        v-for="page in displayedPages" 
+      <button
+        v-for="page in displayedPages"
         :key="page"
         :class="{ active: page === currentPage }"
         @click="$emit('page-change', page)"
@@ -18,62 +15,59 @@
       </button>
     </div>
 
-    <button 
-      @click="handleNext"
-      :disabled="currentPage === totalPages"
-    >
+    <button @click="handleNext" :disabled="currentPage === totalPages">
       Next
     </button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed } from "vue";
 
 export default defineComponent({
-  name: 'Pagination',
+  name: "Pagination",
   props: {
     currentPage: {
       type: Number,
-      required: true
+      required: true,
     },
     totalPages: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
-  emits: ['page-change'],
+  emits: ["page-change"],
   setup(props, { emit }) {
     const displayedPages = computed(() => {
-      const pages = []
-      const start = Math.max(1, props.currentPage - 2)
-      const end = Math.min(props.totalPages, props.currentPage + 2)
-      
+      const pages: number[] = []; // Explicitly type the array as number[]
+      const start = Math.max(1, props.currentPage - 2);
+      const end = Math.min(props.totalPages, props.currentPage + 2);
+
       for (let i = start; i <= end; i++) {
-        pages.push(i)
+        pages.push(i);
       }
-      return pages
-    })
+      return pages;
+    });
 
     const handlePrevious = () => {
       if (props.currentPage > 1) {
-        emit('page-change', props.currentPage - 1)
+        emit("page-change", props.currentPage - 1);
       }
-    }
+    };
 
     const handleNext = () => {
       if (props.currentPage < props.totalPages) {
-        emit('page-change', props.currentPage + 1)
+        emit("page-change", props.currentPage + 1);
       }
-    }
+    };
 
     return {
       displayedPages,
       handlePrevious,
-      handleNext
-    }
-  }
-})
+      handleNext,
+    };
+  },
+});
 </script>
 
 <style lang="scss">

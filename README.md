@@ -4,12 +4,12 @@ A modern Vue 3 application for browsing and managing your favorite movies. Built
 
 ## Features
 
-- 🎬 Browse movies with real-time search
-- ⭐ Save favorite movies with persistent storage
-- 📱 Responsive design for all devices
-- 🔍 Advanced search functionality
-- 📄 Pagination support
-- 🎨 Modern and clean UI
+- Browse movies with real-time search
+- Save favorite movies with persistent storage
+- Responsive design for all devices
+- Advanced search functionality
+- Pagination support
+- Modern and clean UI
 
 ## Tech Stack
 
